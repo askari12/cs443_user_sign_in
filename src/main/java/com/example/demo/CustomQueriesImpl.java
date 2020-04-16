@@ -18,7 +18,7 @@ public class CustomQueriesImpl implements CustomQueries {
 	
 	@Override
 	@Transactional
-	public void updateUser(long id, User user) {
+	public void updateUser(String id, User user) {
 		Query query = new Query();
 		query.addCriteria(Criteria.where("_id").is(id));
 		Update update = new Update();

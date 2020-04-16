@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 @Repository
-public interface UserRepository extends MongoRepository<User, Long>, CustomQueries{
+public interface UserRepository extends MongoRepository<User, String>, CustomQueries{
     @Transactional
-    void updateUser(long id, User user);
+    void updateUser(String id, User user);
 }
