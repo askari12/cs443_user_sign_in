@@ -28,8 +28,8 @@ public class AdminController {
     @Autowired
     private AdminRepository repo;
 
-    @PostMapping(value = "/signUp")
-    private ResponseEntity<Object> adminSignUp(@RequestBody HashMap<String , String> passwordMap) {
+    @PostMapping(value = "/signIn")
+    private ResponseEntity<Object> adminSignIn(@RequestBody HashMap<String , String> passwordMap) {
 
         String password = passwordMap.get("password");
         int sessionLength = Integer.parseInt(sessionLengthString);
