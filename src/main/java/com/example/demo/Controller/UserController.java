@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
@@ -24,8 +25,16 @@ public class UserController {
     }
 
     @GetMapping(value = "/users")
-    public List<User> getAllUsers(){
-        return userRepository.findAll();
+    public List<FilteredUser> getAllUsers(){
+
+        List<User> users = userRepository.findAll();
+        List<FilteredUser> filteredUsers = new ArrayList<>();
+
+        for (User user : users){
+           filteredUsers.add(new FilteredUser(user.getUserId() , user.getFirstName() , user.getLastName() , user.getEmail()) );
+        }
+
+        return filteredUsers;
     }
 
     @GetMapping(value = "/users/{id}")

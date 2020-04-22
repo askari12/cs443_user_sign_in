@@ -15,4 +15,24 @@ public class FilteredUser {
     }
     public FilteredUser() {}
 
+    public String getUserId() {return this.userId;}
+
+    public String getFirstName() {return this.firstName;}
+
+    public String getLastName() {return this.lastName;}
+
+    public String getEmail() {return this.email;}
+
+
+    public void setUserId(String id) {this.userId = id;}
+
+    public void setFirstName(String name) {this.firstName = name;}
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }
