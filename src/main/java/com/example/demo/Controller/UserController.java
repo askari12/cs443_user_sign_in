@@ -1,6 +1,7 @@
 package com.example.demo.Controller;
 
 import com.example.demo.Collections.User;
+import com.example.demo.JsonObj.FilteredUser;
 import com.example.demo.Repositories.UserRepository;
 import com.example.demo.util.PasswordManager;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +36,10 @@ public class UserController {
         if (!temp.isPresent())
             return ResponseEntity.notFound().build();
 
-        return ResponseEntity.ok( temp );
+        User user = temp.get();
+        FilteredUser fuser = new FilteredUser(user.getUserId() , user.getFirstName() , user.getLastName() , user.getEmail());
+
+        return ResponseEntity.ok( fuser );
     }
 
     @PostMapping(value = "/createUser")

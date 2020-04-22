@@ -23,33 +23,37 @@ public class AdminController {
     @Value("${app.adminPassword}")
     private String actualPassword;
 
+    @Value("${app.adminEmail}")
+    private String actualEmail;
+
 
 
     @Autowired
     private AdminRepository repo;
 
     @PostMapping(value = "/signIn")
-    private ResponseEntity<Object> adminSignIn(@RequestBody HashMap<String , String> passwordMap) {
+    private ResponseEntity<Object> adminSignIn(@RequestBody HashMap<String , String> map) {
 
-        String password = passwordMap.get("password");
+        String password = map.get("password");
+        String email = map.get("email");
         int sessionLength = Integer.parseInt(sessionLengthString);
 
 
-        if (actualPassword.equals(password)) {
+        if (actualPassword.equals(password) && actualEmail.equals(email)) {
 
             // Add a session object
             Admin admin = new Admin(LocalDateTime.now().plusMinutes(sessionLength));
             repo.save(admin);
 
-            return ResponseEntity.ok().build();
+            return ResponseEntity.ok(admin.getId());
         }
 
         return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Wrong Password");
     }
 
-    @GetMapping(value= "/getSession")
-    private ResponseEntity<Object> getSession() {
-        return ResponseEntity.ok(repo.findAll());
+    @GetMapping(value= "/getSession/{id}")
+    private ResponseEntity<Object> getSession(@PathVariable String id) {
+        return ResponseEntity.ok(repo.findById(id));
     }
 
 }
