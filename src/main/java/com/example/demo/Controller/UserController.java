@@ -14,6 +14,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
+@CrossOrigin
 @RestController
 public class UserController {
 
@@ -24,6 +25,7 @@ public class UserController {
         this.userRepository = userRepository;
     }
 
+    @CrossOrigin
     @GetMapping(value = "/users")
     public List<FilteredUser> getAllUsers(){
 
@@ -37,6 +39,7 @@ public class UserController {
         return filteredUsers;
     }
 
+    @CrossOrigin
     @GetMapping(value = "/users/{id}")
     public ResponseEntity<Object> getUserById(@PathVariable String id) {
 
@@ -51,6 +54,7 @@ public class UserController {
         return ResponseEntity.ok( fuser );
     }
 
+    @CrossOrigin
     @PostMapping(value = "/createUser")
     public ResponseEntity<Object> createUser(@RequestBody User user) {
 
@@ -66,6 +70,7 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Selected User already Exists !");
     }
 
+    @CrossOrigin
     @DeleteMapping(value = "/deleteUser/{id}")
     public ResponseEntity<Object> deleteUser(@PathVariable String id) {
         if (!userRepository.findById(id).isPresent())
@@ -75,6 +80,7 @@ public class UserController {
         return ResponseEntity.ok().build();
     }
 
+    @CrossOrigin
     @PutMapping(value = "/updateUser/{id}")
     public ResponseEntity<Object> updateUserName(@RequestBody User user, @PathVariable String id) {
 
@@ -85,6 +91,7 @@ public class UserController {
         return ResponseEntity.ok().build();
     }
 
+    @CrossOrigin
     @PostMapping(value = "/checkPassword")
     public ResponseEntity<Object> checkPassword(@RequestBody HashMap<String , String> body) {
 
@@ -114,6 +121,7 @@ public class UserController {
         return ResponseEntity.ok(data);
     }
 
+    @CrossOrigin
     @GetMapping(value = "/numUsers")
     public ResponseEntity<Object> numberOfUsers() {
         return ResponseEntity.ok(userRepository.count());

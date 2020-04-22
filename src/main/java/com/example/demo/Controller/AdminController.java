@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 
+@CrossOrigin
 @RequestMapping(value = "/admin")
 @RestController
 public class AdminController {
@@ -31,8 +32,9 @@ public class AdminController {
     @Autowired
     private AdminRepository repo;
 
-    @PostMapping(value = "/signIn")
-    private ResponseEntity<Object> adminSignIn(@RequestBody HashMap<String , String> map) {
+    @CrossOrigin
+    @PostMapping(path = "/signIn")
+    public ResponseEntity<Object> adminSignIn(@RequestBody HashMap<String , String> map) {
 
         String password = map.get("password");
         String email = map.get("email");
@@ -51,9 +53,27 @@ public class AdminController {
         return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Wrong Password");
     }
 
-    @GetMapping(value= "/getSession/{id}")
-    private ResponseEntity<Object> getSession(@PathVariable String id) {
+    @CrossOrigin
+    @GetMapping(path= "/getSession/{id}")
+    public ResponseEntity<Object> getSession(@PathVariable String id) {
         return ResponseEntity.ok(repo.findById(id));
+    }
+
+    @CrossOrigin
+    @GetMapping(path= "/getAllSessions")
+    public ResponseEntity<Object> getAllSessions() {
+        return ResponseEntity.ok(repo.findAll());
+    }
+
+    @CrossOrigin
+    @DeleteMapping(path = "/deleteSession/{id}")
+    public ResponseEntity<Object> deleteSession(@PathVariable String id) {
+
+        if (!repo.findById(id).isPresent())
+            return ResponseEntity.notFound().build();
+
+        repo.deleteById(id);
+        return ResponseEntity.ok().build();
     }
 
 }
