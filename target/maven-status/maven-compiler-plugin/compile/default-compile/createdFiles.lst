@@ -1,7 +1,9 @@
 com/example/demo/Repositories/CustomQueriesImpl.class
 com/example/demo/Config/AdminConfig.class
 com/example/demo/Controller/AdminController.class
+com/example/demo/Config/CorsConfig.class
 com/example/demo/util/BCrypt.class
+com/example/demo/Config/CorsConfig$1.class
 com/example/demo/Controller/UserController.class
 com/example/demo/DemoApplication.class
 com/example/demo/JsonObj/FilteredUser.class

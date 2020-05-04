@@ -31,7 +31,7 @@ public class SwaggerConfig {
 
     private ApiInfo apiInfo() {
         return new ApiInfo(
-                "Linkly URL Mapping REST API", //title
+                "Linkly User Authentication REST API", //title
                 "An API to manage and access user and admin sign in and login for Linkly.", //description
                 "Version 1.0", //version
                 "Terms of service", //terms of service URL
