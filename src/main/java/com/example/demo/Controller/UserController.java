@@ -88,7 +88,9 @@ public class UserController {
         if (!userRepository.findById(id).isPresent())
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body("User Name is already Taken !");
 
-        userRepository.updateUser(id, user);
+//        System.out.println(user.getFirstName() + " " + user.getLastName());
+        userRepository.save(user);
+
         return ResponseEntity.ok().build();
     }
 

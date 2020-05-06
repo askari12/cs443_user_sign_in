@@ -5,8 +5,10 @@ com/example/demo/Config/CorsConfig.class
 com/example/demo/util/BCrypt.class
 com/example/demo/Config/CorsConfig$1.class
 com/example/demo/Controller/UserController.class
+com/example/demo/Config/SecurityConfig.class
 com/example/demo/DemoApplication.class
 com/example/demo/JsonObj/FilteredUser.class
+com/example/demo/Config/SimpleCORSFilter.class
 com/example/demo/Repositories/CustomQueries.class
 com/example/demo/Collections/User.class
 com/example/demo/Repositories/AdminRepository.class

@@ -7,7 +7,9 @@
 /home/askari/Documents/Test_Projects/demo/demo/src/main/java/com/example/demo/util/BCrypt.java
 /home/askari/Documents/Test_Projects/demo/demo/src/main/java/com/example/demo/Repositories/UserRepository.java
 /home/askari/Documents/Test_Projects/demo/demo/src/main/java/com/example/demo/Repositories/CustomQueriesImpl.java
+/home/askari/Documents/Test_Projects/demo/demo/src/main/java/com/example/demo/Config/SecurityConfig.java
 /home/askari/Documents/Test_Projects/demo/demo/src/main/java/com/example/demo/Collections/User.java
+/home/askari/Documents/Test_Projects/demo/demo/src/main/java/com/example/demo/Config/SimpleCORSFilter.java
 /home/askari/Documents/Test_Projects/demo/demo/src/main/java/com/example/demo/Config/SwaggerConfig.java
 /home/askari/Documents/Test_Projects/demo/demo/src/main/java/com/example/demo/Config/AdminConfig.java
 /home/askari/Documents/Test_Projects/demo/demo/src/main/java/com/example/demo/util/PasswordManager.java
